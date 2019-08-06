@@ -59,7 +59,7 @@ namespace ArrayRotations
             PrintArray(arr);
         }
 
-        static void PrintArray(int[] arr)
+        static void PrintArray(int[] arr)  //Let's just print it on console
         {
             foreach (var i in arr)
             {
