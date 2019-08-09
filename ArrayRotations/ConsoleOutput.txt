@@ -1,0 +1,17 @@
+﻿Initial array:
+1 2 3 4 5 6
+
+Left rotate once:
+2 3 4 5 6 1
+
+Right rotate once:
+6 1 2 3 4 5
+
+Left rotate by 2:
+3 4 5 6 1 2
+
+Left rotate by 3:
+4 5 6 1 2 3
+
+Press any key..
+

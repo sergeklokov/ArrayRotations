@@ -13,31 +13,42 @@ namespace ArrayRotations
     /// </summary>
     class Program
     {
-        static int[] arr = { 1,2,3,4,5};
+        //static int[] arr = { 1, 2, 3, 4, 5 };
+        static int[] arr = { 1, 2, 3, 4, 5, 6 };
 
         static void Main(string[] args)
         {
+            Console.WriteLine("Initial array: ");
             PrintArray(arr);
 
-            LeftRotateOnce(arr);
-            LeftRotateOnce(arr);
-            LeftRotateOnce(arr);
-            LeftRotateOnce(arr);
-            LeftRotateOnce(arr);            
+            LeftRotateOnce(arr);  // uncomment to test
 
-            //RightRotateOnce(arr);
+            InitializeArray();
+            RightRotateOnce(arr);
+
+            InitializeArray();
+            LeftRotateByN(arr, 2);
+
+            InitializeArray();
+            LeftRotateByN(arr, 3);
 
             Console.WriteLine("Press any key..");
             Console.ReadKey();
         }
 
+        private static void InitializeArray()
+        {
+            arr = new [] { 1, 2, 3, 4, 5, 6 };
+        }
+
         static void LeftRotateOnce(int[] arr)
         {
+            Console.WriteLine("Left rotate once: ");
             int temp = arr[0];
             int i;
-            int n = arr.Length;
+            int l = arr.Length;
 
-            for (i = 0; i < n - 1; i++)
+            for (i = 0; i < l - 1; i++)
                 arr[i] = arr[i + 1];
 
             arr[i] = temp;
@@ -45,28 +56,49 @@ namespace ArrayRotations
             PrintArray(arr);
         }
 
-        static void RightRotateOnce(int[] arr)
+        static void RightRotateOnce(int[] r)
         {
+            Console.WriteLine("Right rotate once: ");
             int i;
-            int n = arr.Length - 1;
-            int temp = arr[n];
+            int l = r.Length - 1;
+            int temp = r[l];
 
-            for (i = n; i > 0; i--)
-                arr[i] = arr[i - 1];
+            for (i = l; i > 0; i--)
+                r[i] = r[i - 1];
 
-            arr[i] = temp;
+            r[i] = temp;
+
+            PrintArray(r);
+        }
+
+        static void LeftRotateByN(int[] a, int n)
+        {
+            Console.WriteLine($"Left rotate by {n}: ");
+
+            int l = a.Length;
+
+            if (n >= l - 1)
+                throw new Exception("Can't rotate more than array length");
+
+            int[] temp = new int[n]; // save first few
+            for (int i = 0; i < n; i++)
+                temp[i] = a[i];
+
+            for (int i = 0; i < l - n; i++)  // shift 
+                a[i] = a[i + n];
+
+            for (int i = 0; i < n; i++)  // add saved elemenents to the end
+                a[l - n + i] = temp[i];
 
             PrintArray(arr);
         }
 
-        static void PrintArray(int[] arr)  //Let's just print it on console
+        static void PrintArray(int[] a)  //Let's just print it on console
         {
-            foreach (var i in arr)
-            {
+            foreach (var i in a)
                 Console.Write(i+" ");
-            }
 
-            Console.WriteLine();
+            Console.WriteLine(); Console.WriteLine();
         }
 
     }
