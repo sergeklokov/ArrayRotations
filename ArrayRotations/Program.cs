@@ -4,8 +4,7 @@ using System.Linq;
 namespace ArrayRotations
 {
     /// <summary>
-    /// TODO: I'm going to develop some primitive array rotation algorithms
-    /// Not done yet, please ignore
+    /// Developed some primitive array rotation algorithms
     /// 
     /// Serge Klokov 2019
     /// 
